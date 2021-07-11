@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block header %}
+<meta name="description" content="Uk photography| appointments">
+{% endblock header %}
+{% block title %}
+Uk photography|Appointment form
+{% endblock title %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'PhotoStudio/StyleSheets/book.css' %}">
+{% endblock style %}
+{% block pageBody %}
+<!--PAGE BODY STARTS HERE-->
+<section id="sectionBookingForm" class="flexC justify_mid bg_white">    
+    <h1 class="underline center margin_1">Lets talk</h1>
+    <div id="sectionBookingFormContainer" class="flex">
+        <picture id="bookingFormimg" class="">
+            <img src="{% static 'PhotoStudio/Images/nathan-dumlao-jHXZZx5D-lg-unsplash.jpg' %}" alt="" width="400"
+                height="600" class="">
+        </picture>
+        <form id="bookingForm" class="flexC justify_mid bdr" action="/bookings" method="POST">
+            {% csrf_token %}
+            <label for="CFirstName">First Name<span class="field_required">*</span></label>
+            <input type="text" name="CFirstName" id="CFirstName" maxlength="20" placeholder="Tony" required>
+            <label for="CLastName">Last Name</label>
+            <input type="text" name="CLastName" id="CLastName" maxlength="20" placeholder="Stark">
+            <label for="cEmail">Email</label>
+            <input type="email" name="cEmail" id="cEmail" placeholder="example123@gamil.com">
+            <label for="cContactNo">Contact No<span class="field_required">*</span></label>
+            <input type="tel" name="cContactNo" id="cContactNo" maxlength="10" placeholder="1234567890" required>
+            <input id="BookedOn" type="hidden" name="BookedOn">
+            <label for="apptDate">Select Date For Appointment<span class="field_required">*</span></label>
+            <input type="date" name="apptDate" id="apptDate" required>
+            <label for="cEvent">Select Event<span class="field_required">*</span></label>
+            <select name="cEvent" id="cEvent" required>
+                <option value="Weddings">Weddings</option>
+                <option value="Engagement">Engagement</option>
+                <option value="Party">Birthday Party</option>
+                <option value="Party">Party</option>
+                <option value="Family">Family</option>
+                <option value="Family">Other</option>
+            </select>
+            <label for="cMessage">Suggestion</label>
+            <textarea name="cMessage" id="cMessage" cols="30" rows="10" placeholder="Describe more"></textarea>
+            <button type="submit" class="SubmitBtn mg_top_1">submit</button>
+        </form>
+    </div>
+</section>
+<!--PAGE BODY ENDS HERE-->
+{% endblock pageBody %}
+{% block script %}
+<script>
+    function Aptform() {
+        var date = new Date;
+        var yy = date.getFullYear();
+        var mm = date.getMonth()+1;
+        if(mm<10) mm="0"+mm;
+        var dd = date.getDate();
+        if(dd<10) dd="0"+dd;
+        var BookedOn = document.getElementById("BookedOn").value=`${yy}-${mm}-${dd}`;
+        var apptdate = document.getElementById("apptDate");
+        apptdate.min =`${yy}-${mm}-${dd}`;
+        apptdate.max = `${yy}`+"01-01";
+    }
+    Aptform();
+    document.getElementById("bookingForm").addEventListener("submit",()=>{
+        setTimeout(function(){
+         document.getElementById('loder_container').style.display="block";
+      },1000);
+    });
+</script>
+{% endblock script %}

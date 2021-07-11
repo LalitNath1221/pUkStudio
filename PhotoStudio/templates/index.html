@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% block header %}{% endblock header %}
+{% block title %}
+Uk photography|Home
+{% endblock title %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'PhotoStudio\StyleSheets\index.css' %}">
+{% endblock style %}
+{% block pageBody %}
+<!--PAGE BODY STARTS HERE-->
+<div id="homeContainer1" class="flex justify_mid">
+    <div>
+        <h1>Uk Photography</h1>
+        <p class="fontMplus">
+            Images that tell story
+        </p>
+        <div class="scrollDownAnimation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div id="homeContainer2" class="flexC justify_mid bg_white pd_inline_10">
+    <section id="headingAboutUs" class="padding_1">
+        <h1 class="container_heading1">About us</h1>
+    </section>
+    <section class="flex justify_mid bg_white wrap mg_top_2 mg_bot_2">
+        <div id="homeContainer2_Img" class="">
+            <img class="DivImg" src="{% static 'PhotoStudio/Images/marco-xu-ToUPBCO62Lw-unsplash.jpg' %}" alt="">
+        </div>
+        <div id="homeContainer2_content" class="flexC padding_1 ">
+            <h1 class="container_heading2">Uk Photography</h1>
+            <p class="mg_top_1 font1" style="font-family:cursive">We specialize in wedding photography, corporate,
+                family and senior portraits, often traveling to your destination to capture the perfect moment in the
+                perfect place.<br />
+                To us photography is about people being real and then letting us paint a picture of that moment to
+                remember it forever.<br />
+                We would love to visit with you by phone or in person and talk about your wedding, event, portrait
+                session or video project.
+            </p>
+            <div id="homeAboutButtton" class="margin_1">
+                <a href="/bookings">Book a session ></a>
+            </div>
+        </div>
+    </section>
+</div>
+<section id="homecontainer5_services" class="flexC bg_white bdr mg_top_1 pd_top_2">
+    <section id="headingServices" class="padding_1">
+        <h1 class="container_heading1 center underline">services</h1>
+    </section>
+    <section id="container_services" class="">
+        <div class="service_card">
+            <div class="service">
+                <img src="{% static 'PhotoStudio/Images/serviceWeddings.jpg' %}" alt="" width="250">
+                <div>
+                    <h1>Wedding Photography</h1>
+                </div>
+            </div>
+            <a href="/bookings">
+                <div class="appbtn">Book Appointment</div>
+            </a>
+        </div>
+        <div class="service_card">
+            <div class="service">
+                <img src="{% static 'PhotoStudio/Images/serviceEvents.jpg' %}" alt="" width="250">
+                <div>
+                    <h1>Event Photography</h1>
+                </div>
+            </div>
+            <a href="/bookings">
+                <div class="appbtn">Book Appointment</div>
+            </a>
+        </div>
+        <div class="service_card">
+            <div class="service">
+                <img src="{% static 'PhotoStudio/Images/serviceTravel.jpg' %}" alt="" width="250">
+                <div>
+                    <h1>Travel Photography</h1>
+                </div>
+            </div>
+            <a href="/bookings">
+                <div class="appbtn">Book Appointment</div>
+            </a>
+        </div>
+        <div class="service_card">
+            <div class="service">
+                <img src="{% static 'PhotoStudio/Images/servicePotratis.jpg'%}" alt="" width="250">
+                <div>
+                    <h1>Portrait Photography</h1>
+                </div>
+            </div>
+            <a href="/bookings">
+                <div class="appbtn">Book Appointment</div>
+            </a>
+        </div>
+    </section>
+</section>
+<section id="homeContainer3_Portfolio" class="flexC bg_white mg_top_1 pd_top_2">
+    <h1 class="container_heading1 underline center mg_top_2">Portfolio</h1>
+    <div id="Portfolio_gallery">
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery1.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery2.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery3.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery4.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery5.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery6.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery7.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery8.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery9.jpg' %}" alt="">
+        </div>
+        <div class="box">
+            <img src="{% static 'PhotoStudio\Images\gallery10.jpg' %}" alt="">
+        </div>
+    </div>
+</section>
+<section id="homeContainer4" class="mg_top_2 ">
+    <img src="{% static 'PhotoStudio/Images/vishnu-prasad-22PtfxxhZHI-unsplash.jpg' %}" alt="">
+    <form id="homeContainer4_contactForm" class="flexC padding_1 justify_mid mg_top_1 bdr" action="/" method="post">
+        {% csrf_token %}
+        <h1 class="container_heading1 underline center">Contact Us</h1>
+        <label for="Name">Name<span class="field_required">*</span></label>
+        <input class="bdr" type="text" name="Name" id="UserName" placeholder="Tony Stark" required>
+        <label for="Email">Email<span class="field_required">*</span></label>
+        <input class="bdr" type="email" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="UserEmail"
+            placeholder="example123@gamil.com" required>
+        <label for="ContactNum">Contact Number</label>
+        <input class="bdr" type="tel" name="ContactNum" id="UserContactNum">
+        <label for="userQuery">How can we help you<span class="field_required">*</span></label>
+        <textarea name="userQuery" id="" placeholder="write your query in more than 30 words." cols="30" rows="10"
+            minlength="30" maxlength="500" required></textarea>
+        <button class="SubmitBtn mg_top_1">Submit</button>
+    </form>
+    </div>
+</section>
+<!--PAGE BODY ENDS HERE-->
+{% endblock pageBody %}
+{% block script %}
+<script>
+    document.getElementById("homeContainer4_contactForm").addEventListener("submit", () => {
+        setTimeout(function () {
+            document.getElementById('loder_container').style.display = "block";
+        }, 1000);
+    });
+</script>
+{% endblock script %}

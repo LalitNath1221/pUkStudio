@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#sectionBookingForm{
+    position: relative;
+    /*width: 100vw;*/
+    padding-block: 2rem;
+}
+#sectionBookingFormContainer{
+    align-items: center;
+    padding-top: 2rem;
+    background: white;
+    position: relative;
+    right: 4vw;
+}
+#sectionBookingForm>h1{
+    font-family: cursive;
+    font-size: 3em;
+}
+#bookingFormimg{
+    position: relative;
+    left: 6vw;
+}
+#bookingFormimg img{
+    box-shadow: 0.5rem 0.5rem 1rem 0.3rem black;
+}
+#bookingForm{
+    padding-inline: 8vw;
+    padding-block: 2rem;
+}
+#bookingForm *{
+    display: block;
+    width: 20rem;
+    font-size: 16px;
+    padding: .2rem;
+    outline: none;
+    font-family: sans-serif;
+}
+#bookingForm *:not(label){
+border: 2px solid black;
+margin-bottom: 1rem;
+}
+#bookingForm label{
+    display: inline-block;
+}
+#bookingForm label span{
+    all: initial;
+    display: inline;
+    color: red;
+}
+#bookingForm>div{
+    border: 2px solid black;
+}
+@media only screen and (max-width: 900px) {
+    #sectionBookingFormContainer{
+        right: 2vw;
+    }
+    
+    #bookingFormimg img{
+        width: 100%;
+    }
+    #bookingForm{
+        padding-block: 1.5rem;
+    }
+}
+@media only screen and (max-width: 850px) {
+    #sectionBookingForm{
+        margin-inline: unset;
+        background-image: url("/static/PhotoStudio/Images/backG4.jpg");
+        background-position: center;
+        background-size: cover;
+        background-attachment: initial;
+    }
+    #bookingFormimg{
+        display: none;
+    }
+    #sectionBookingFormContainer {
+        padding-top: 0rem;
+    }
+    #sectionBookingForm>h1 {
+        font-size: 3em;
+        color: white;
+    }
+    #bookingForm {
+        padding-block: 3.2rem;
+    }
+}
+@media only screen and (max-width: 800px) {
+    #bookingForm *{
+        width: 18rem;
+    }
+}
+@media only screen and (max-width: 700px) {
+    #sectionBookingFormContainer{
+        right: 1vw;
+    }
+    #sectionBookingForm{
+        margin-inline: unset;
+    }
+    #bookingForm *{
+        width: 15rem;
+        font-size: 14px;
+    }
+
+}
+@media only screen and (max-width: 550px) {
+    #sectionBookingFormContainer{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        padding-top: 0%;
+    }
+    #bookingForm{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        padding: 1rem 2rem;
+        padding-top: 2rem;
+        box-shadow: .5rem .5rem 1rem gray;
+    }
+    #bookingForm{
+        padding-block: 1rem;
+    }
+}
+@media only screen and (max-width: 250px) {
+    #bookingForm{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        padding: 1rem;
+        padding-top: 2rem;
+        box-shadow: .5rem .5rem 1rem gray;
+    }
+}

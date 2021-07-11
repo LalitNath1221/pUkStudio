@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}{% endblock header %}
+    <title>{% block title %}{% endblock title %}</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'PhotoStudio/Images/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'PhotoStudio\StyleSheets\base.css' %}">
+    {% block style %}{% endblock style %}
+</head>
+
+<body>
+<section id="loder_container">
+    <div class="loder">
+        <h1>LOADING</h1>
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+        <span class="dot dot4"></span>
+    </div>
+</section>
+    <div id="mainHeading" class="container">
+        <div id="menuLogo" class="heading">
+            <button onclick="toggleMenu()" id="menuIconBtn" class="">
+                <p id="menuIconBtnBar1" class="menuIconBtnBars"></p>
+                <p id="menuIconBtnBar2" class="menuIconBtnBars"></p>
+                <p id="menuIconBtnBar3" class="menuIconBtnBars"></p>
+            </button>
+            <h1 id="logoText">Uk photography</h1>
+        </div>
+        <div id="linkPages" class="menuRes0">
+            <a class="nav_links" onclick="toggleMenu()" href="/">Home</a>
+            <a class="nav_links" onclick="toggleMenu()" href="/#homeContainer2">About us</a>
+            <a class="nav_links" onclick="toggleMenu()" href="/#homecontainer5_services">Services</a>
+            <a class="nav_links" onclick="toggleMenu()" href="/#homeContainer3_Portfolio">Portfolio</a>
+            <a class="nav_links" onclick="toggleMenu()" href="/#homeContainer4">Contact us</a>
+            <a class="nav_links" onclick="toggleMenu()" href="/bookings">Book now</a>
+        </div>
+    </div>
+    {% if responce %}
+    <div class="serverResponceContainer">
+        <div class="serverResponce {{status}}">
+            <button type="button" class="serverResponceBtn">&Cross;</button>
+            {{responce|safe}}
+        </div>
+    </div>
+    {% endif %}
+    {% block pageBody %}{% endblock pageBody %}
+    <footer id="mainfooter">
+        <h1>Follow Us</h1>
+        <div id="container_follow">
+            <a href="#facebook"><img src="{% static 'PhotoStudio/Images/facebookLogo.png'%}" alt="facebook" width="40"
+                    height="40"></a>
+            <a href="#instagram"><img src="{% static 'PhotoStudio/Images/instaLogo.png'%}" alt="instagram" width="40"
+                    height="40"></a>
+            <a href="#youtube"><img src="{% static 'PhotoStudio/Images/youtubeLogo.png'%}" alt="youtube" width="40"
+                    height="40"></a>
+            <a href="#snapchat"><img src="{% static 'PhotoStudio/Images/snapLogo.png'%}" alt="snapchat" width="40"
+                    height="40"></a>
+        </div>
+        <div id="container_copyright">
+            <a href="#copyright">
+                <p>copyright &copy; 2021 - Ukphotography</p>
+            </a>
+            <a href="#Insta/LALITnath">
+                <p>Developer: Lalit Nath</p>
+            </a>
+        </div>
+    </footer>
+</body>
+<script>
+        document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    setTimeout(function(){
+         document.getElementById('loder_container').style.display="none";
+      },1000);
+  }
+        }
+    function toggleMenu() {
+        var mnu = document.getElementById("linkPages");
+        mnu.classList.toggle("menuRes");
+        //document.getElementById("menuIconBtnBar1")
+        
+        var bars = document.getElementsByClassName("menuIconBtnBars");
+        for (let i = 0; i < bars.length; i++) {
+            bars[i].classList.toggle("crossMEnu");
+            
+        }
+    }
+
+    var serverRes = document.getElementsByClassName("serverResponceBtn");
+    for (let i = 0; i < serverRes.length; i++) {
+        serverRes[i].addEventListener("click", () => {
+            var container = document.getElementsByClassName("serverResponceContainer");
+            container[i].style.display = "none";
+        });
+    }
+</script>
+{% block script %}
+{% endblock script %}
+
+</html>
